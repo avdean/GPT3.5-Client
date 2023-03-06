@@ -37,7 +37,7 @@ a:visited {
 /*Welcome Screen */
 
 .welcome {
-  padding:20vh 10vw;
+  padding:10vh 10vw;
   gap:4vh;
   display: flex;
   flex-direction: column;

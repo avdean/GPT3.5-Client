@@ -53,11 +53,7 @@ const WelcomeScreen = (props) => {
       >
         <h1>GPT 3.5 Client</h1>
         <p>
-          This is a client that lets you speak to a number of OpenAI's models!
-          You can read more about the different models at{" "}
-          <a href="https://platform.openai.com/docs/models/overview">
-            OpenAI's docs
-          </a>.
+          This is a client that lets you speak to OpenAI's chatGPT chatbot direct via API, with a slightly smoother UI!
         </p>
         <form className="WelcomeInputForm" onSubmit={handleApiSubmit}>
         <h3>Before you start, please enter your OpenAI API key:</h3>

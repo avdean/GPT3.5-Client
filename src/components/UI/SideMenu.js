@@ -1,4 +1,4 @@
-import { HiX, HiPlus, HiSun, HiMoon } from "react-icons/hi";
+import { HiX, HiPlus, HiSave, HiSun, HiMoon } from "react-icons/hi";
 
 const SideMenu = (props) => {
   return (
@@ -19,6 +19,10 @@ const SideMenu = (props) => {
           <div className="sidemenu-button" onClick={props.clearChat}>
             <HiPlus />
             New chat
+          </div>
+          <div className="sidemenu-button" onClick={props.saveChat}>
+            <HiSave />
+            Save current chat
           </div>
         </div>
         {props.theme === "light" ? (

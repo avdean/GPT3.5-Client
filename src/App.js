@@ -32,7 +32,10 @@ function App() {
     const savedAPI = localStorage.getItem("myAPI");
     return savedAPI !== null ? savedAPI : "";
   });
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState(() => {
+    const savedMessages = JSON.parse(localStorage.getItem("savedMessages"));
+    return savedMessages !== null ? savedMessages : [];
+  });
 
   const systemMessage = {
     "role": "system", "content": currentSystemMessage
@@ -53,6 +56,10 @@ function App() {
     setMessages([]);
   }
 
+  function saveChat() {
+    localStorage.setItem("savedMessages", JSON.stringify(messages));
+  }
+
   function toggleSideMenu() {
     setShowSidemenu(!showSidemenu);
   }
@@ -60,6 +67,7 @@ function App() {
   const handleSend = async (e) => {
     console.log(currentSystemMessage);
     e.preventDefault();
+    setInput("");
     if (input.trim() === "") {
       return;
     }
@@ -104,6 +112,7 @@ function App() {
         ...apiMessages // The messages from our chat with ChatGPT
       ]
     }
+    
 
     await fetch("https://api.openai.com/v1/chat/completions", 
     {
@@ -122,7 +131,6 @@ function App() {
         sender: "ChatGPT"
       }]);
       setIsLoading(false);
-      setInput("");
     });
   }
 
@@ -133,6 +141,7 @@ function App() {
       {currentAPI !== "" && !error && (
         <SideMenu
           clearChat={clearChat}
+          saveChat={saveChat}
           setCurrentModel={setCurrentModel}
           currentModel={currentModel}
           theme={theme}

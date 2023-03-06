@@ -64,8 +64,7 @@ const WelcomeScreen = (props) => {
           <h3>You can also add how you would like GPT 3.5 to respond?</h3>
             <textarea
               type="text"
-              rows="4"
-              cols="50"
+              rows="4"
               name="system"
               ref={systemInputRef}
               placeholder="You are a friendly AI assistant ready to help with any question."

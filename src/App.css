@@ -34,6 +34,8 @@ a:visited {
   pointer-events: none;
 }
 
+/*Welcome Screen */
+
 .welcome {
   padding:20vh 10vw;
   gap:4vh;
@@ -50,6 +52,25 @@ a:visited {
 .display {
   font-family: 'Epilogue';
   font-size: 1.2em;
+}
+
+.welcomeButton {
+  border-radius: 16px;
+    padding: 5px 10px;
+    background-color: var(--accent);
+    border: none;
+    box-shadow: 5px 5px 5px var(--shadow);
+    transition: 0.3s;
+}
+
+.welcomeButton:hover {
+    background-color: var(--secondary);
+    box-shadow: 0px 0px 0px var(--shadow);
+}
+
+.welcomeButton:active {
+  background-color: var(--secondary);
+  box-shadow: 5px 5px 5px var(--shadow) inset;
 }
 
 .backdrop {

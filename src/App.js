@@ -18,7 +18,10 @@ function App() {
   const [isInitial, setIsInitial] = useState(true);
   const [error, setError] = useState(false);
   const [showSidemenu, setShowSidemenu] = useState(false);
-  const [currentSystemMessage, setCurrentSystemMessage] = useState("You are a friendly AI assistant, ready to help with any question.")
+  const [currentSystemMessage, setCurrentSystemMessage] = useState(() => {
+    const savedSystemMessage = localStorage.getItem("mySystemMessage");
+    return savedSystemMessage !== null ? savedSystemMessage : "";
+  });
 
   const [currentModel, setCurrentModel] = useState(() => {
     const savedModel = localStorage.getItem("currentModel");
@@ -31,7 +34,7 @@ function App() {
   });
   const [messages, setMessages] = useState([]);
 
-  const systemMessage = { //  Explain things like you're talking to a software professional with 5 years of experience.
+  const systemMessage = {
     "role": "system", "content": currentSystemMessage
   }
 
@@ -55,6 +58,7 @@ function App() {
   }
 
   const handleSend = async (e) => {
+    console.log(currentSystemMessage);
     e.preventDefault();
     if (input.trim() === "") {
       return;
@@ -152,6 +156,7 @@ function App() {
             setError={setError}
             setIsInitial={setIsInitial}
             setCurrentSystemMessage={setCurrentSystemMessage}
+            currentSystemMessage={currentSystemMessage}
           />
         )}
         <motion.div className="chat-log">

@@ -17,12 +17,13 @@ const WelcomeScreen = (props) => {
     props.setCurrentAPI(enteredAPI);
     localStorage.setItem("myAPI", enteredAPI);
     props.setError(false);
-    if (!enteredSystem === "") {
+    
+    if (enteredSystem !== "") {
       props.setCurrentSystemMessage(enteredSystem);
       localStorage.setItem("mySystemMessage", enteredSystem);
     }
     console.log(enteredAPI);
-    console.log(enteredSystem);
+    console.log(props.currentSystemMessage);
     props.setIsInitial(false);
   }
 
@@ -57,7 +58,7 @@ const WelcomeScreen = (props) => {
         </p>
         <form className="WelcomeInputForm" onSubmit={handleApiSubmit}>
         <h3>Before you start, please enter your OpenAI API key:</h3>
-            <input type="text" ref={apiInputRef} />
+            <input type="text" name="api" ref={apiInputRef} />
             {props.error && <p>Please enter a valid API-Key</p>}
  
           <h3>You can also add how you would like GPT 3.5 to respond?</h3>
@@ -65,9 +66,11 @@ const WelcomeScreen = (props) => {
               type="text"
               rows="4"
               cols="50"
+              name="system"
               ref={systemInputRef}
               placeholder="You are a friendly AI assistant ready to help with any question."
             />
+            <button className="welcomeButton">All set!</button>
         </form>
       </motion.div>
     </motion.div>

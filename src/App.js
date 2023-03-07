@@ -148,6 +148,8 @@ function App() {
           switchTheme={switchTheme}
           showSidemenu={showSidemenu}
           toggleSideMenu={toggleSideMenu}
+          currentSystemMessage={currentSystemMessage}
+          setCurrentSystemMessage={setCurrentSystemMessage}
         />
       )}
       <motion.section className="chatbox">

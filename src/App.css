@@ -244,6 +244,8 @@ transform: scale(10px);
   }
 }
 
+/**Side Menu*/
+
 .sidemenu {
   width: 260px;
   padding: 8px;
@@ -275,6 +277,60 @@ transform: scale(10px);
     box-shadow: 5px  5px  10px  var(--inputShadow);
   }
 }
+
+/*Modal*/
+
+.modal {
+  position:fixed;
+  left:0;
+  top:0;
+  right:0;
+  bottom:0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalContent {
+  width:30vw;
+  padding:20px;
+  border-radius: 16px;
+  background-color: var(--secondary);
+  box-shadow: var(--shadow);
+}
+
+@media (max-width:700px) {
+  .modalContent {
+    width:80vw;
+    padding:20px;
+    border-radius: 16px;
+    background-color: var(--secondary);
+    box-shadow: var(--shadow);
+  }
+}
+
+.sytemMessageForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.systemMessageAddModal {
+  padding:10px;
+  width:90%;
+  height:15vh;
+  border-radius: 8px;
+}
+
+.closeCorner {
+  position: relative;
+  transform: translateX(45%) scale(150%);
+  padding: 10px;
+}
+
+
+/*Top Menu*/
 
 .topmenu {
   width: 100vw;

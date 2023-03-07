@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { HiX, HiPlus, HiSave, HiSun, HiMoon } from "react-icons/hi";
+import Modal from "./Modal";
 
 const SideMenu = (props) => {
+  const [show, setShow] = useState(false);
+
   return (
     <>
       <aside
@@ -25,18 +29,33 @@ const SideMenu = (props) => {
             Save current chat
           </div>
         </div>
-        {props.theme === "light" ? (
-          <div className="sidemenu-button" onClick={props.switchTheme}>
-            <HiSun />
-            Light Mode
+        <div className="sidemenuInner">
+          <div className="sidemenu-button" onClick={() => setShow(true)}>
+            <HiSave />
+            System Message
           </div>
-        ) : (
-          <div className="sidemenu-button" onClick={props.switchTheme}>
-            <HiMoon />
-            Dark Mode
-          </div>
-        )}
+          {props.theme === "light" ? (
+            <div className="sidemenu-button" onClick={props.switchTheme}>
+              <HiSun />
+              Light Mode
+            </div>
+          ) : (
+            <div className="sidemenu-button" onClick={props.switchTheme}>
+              <HiMoon />
+              Dark Mode
+            </div>
+          )}
+        </div>
       </aside>
+      {show && (
+        <Modal
+          show={show}
+          onClose={() => setShow(false)}
+          currentSystemMessage={props.currentSystemMessage}
+          setCurrentSystemMessage={props.setCurrentSystemMessage}
+          clearChat={props.clearChat}
+        />
+      )}
     </>
   );
 };

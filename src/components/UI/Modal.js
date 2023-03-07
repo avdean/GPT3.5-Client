@@ -1,0 +1,43 @@
+import { useRef } from "react";
+import { HiX } from "react-icons/hi";
+
+const Modal = (props) => {
+  const modifiedSystemInputRef = useRef();
+  if (!props.show) {
+    return null;
+  }
+
+  function handleSystemMessageSubmit(e) {
+    e.preventDefault();
+    props.clearChat();
+    const enteredSystem = modifiedSystemInputRef.current.value;
+    props.setCurrentSystemMessage(enteredSystem);
+    localStorage.setItem("mySystemMessage", enteredSystem);
+    props.onClose();
+  }
+  return (
+    <div className="modal">
+      <div className="modalContent">
+        <div className="closeCorner">
+          <HiX onClick={props.onClose}/>
+        </div>
+        <p>This is your current System Message:</p>
+        <h3>{props.currentSystemMessage}</h3>
+
+        <p>You can also add how you would like GPT 3.5 to respond?</p>
+        <form className="sytemMessageForm" onSubmit={handleSystemMessageSubmit}>
+          <textarea
+            type="text"
+            className="systemMessageAddModal"
+            name="system"
+            ref={modifiedSystemInputRef}
+            placeholder="You are a friendly AI assistant ready to help with any question."
+          />
+          <button className="welcomeButton">Update</button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default Modal;

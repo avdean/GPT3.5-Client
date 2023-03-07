@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { HiX, HiPlus, HiSave, HiSun, HiMoon } from "react-icons/hi";
+import { HiX, HiPlus, HiSave, HiSun, HiMoon, HiBeaker } from "react-icons/hi";
 import Modal from "./Modal";
 
 const SideMenu = (props) => {
@@ -31,7 +31,7 @@ const SideMenu = (props) => {
         </div>
         <div className="sidemenuInner">
           <div className="sidemenu-button" onClick={() => setShow(true)}>
-            <HiSave />
+            <HiBeaker />
             System Message
           </div>
           {props.theme === "light" ? (

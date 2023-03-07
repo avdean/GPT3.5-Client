@@ -156,6 +156,9 @@ function App() {
           currentModel={currentModel}
           theme={theme}
           switchTheme={switchTheme}
+          currentAPI={currentAPI}
+          error={error}
+
         />
         {isInitial && currentAPI === "" && (
           <WelcomeScreen

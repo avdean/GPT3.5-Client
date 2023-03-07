@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { HiX } from "react-icons/hi";
+import { motion } from "framer-motion";
 
 const Modal = (props) => {
   const modifiedSystemInputRef = useRef();
@@ -17,9 +18,14 @@ const Modal = (props) => {
   }
   return (
     <div className="modal">
-      <div className="modalContent">
+      <motion.div
+        className="modalContent"
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.3 }}
+      >
         <div className="closeCorner">
-          <HiX onClick={props.onClose}/>
+          <HiX onClick={props.onClose} />
         </div>
         <p>This is your current System Message:</p>
         <h3>{props.currentSystemMessage}</h3>
@@ -35,7 +41,7 @@ const Modal = (props) => {
           />
           <button className="welcomeButton">Update</button>
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 };

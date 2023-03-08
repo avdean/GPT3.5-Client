@@ -249,6 +249,7 @@ transform: scale(10px);
 
 .sidemenu {
   width: 260px;
+  height:99%;
   padding: 8px;
   background-color: var(--primary);
   text-align: left;

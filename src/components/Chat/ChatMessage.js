@@ -72,7 +72,8 @@ const ChatMessage = (props, index) => {
           {parts.map((part, i) => {
             if (regex.test(part)) {
               const code = part.substring(3, part.length - 3);
-              const highlightedCode = hljs.highlight('javascript', code).value;
+              const highlightedCode = hljs.highlightAuto(code).value;
+
               return (
                 <pre key={i}>
                   <code dangerouslySetInnerHTML={{ __html: highlightedCode }} />

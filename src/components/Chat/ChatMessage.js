@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { vsDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { dracula } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 const ChatMessage = (props, index) => {
   const messageRef = useRef(null);

@@ -87,5 +87,5 @@ return (
     </AnimatePresence>
   </div>
 );
-
+};
 export default ChatMessage;

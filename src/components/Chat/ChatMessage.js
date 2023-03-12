@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { dracula } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import hljs from "highlight.js";
+import "highlight.js/styles/dracula.css";
 
 const ChatMessage = (props, index) => {
   const messageRef = useRef(null);
@@ -78,15 +78,13 @@ const ChatMessage = (props, index) => {
         >
           {parts.map((part, i) => {
             if (regex.test(part)) {
-              // If part is code block, render it inside SyntaxHighlighter component
+              // If part is code block, render it inside a <pre> and <code> element with the language class
+              const code = part.substring(3, part.length - 3);
+              const highlightedCode = hljs.highlightAuto(code).value;
               return (
-                <SyntaxHighlighter
-                  language="javascript"
-                  style={dracula}
-                  key={i}
-                >
-                  {part.substring(3, part.length - 3)}
-                </SyntaxHighlighter>
+                <pre key={i}>
+                  <code className="language-python" dangerouslySetInnerHTML={{ __html: highlightedCode }}></code>
+                </pre>
               );
             } else {
               // If part is not code block, render it as plain text

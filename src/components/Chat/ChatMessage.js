@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import hljs from 'highlight.js/lib/core';
+import 'highlight.js/styles/default.css';
 
 const ChatMessage = (props, index) => {
   const messageRef = useRef(null);
@@ -75,7 +76,7 @@ const ChatMessage = (props, index) => {
               const highlightedCode = hljs.highlightAuto(code).value;
 
               return (
-                <pre key={i}>
+                <pre key={i} className="hljs">
                   <code dangerouslySetInnerHTML={{ __html: highlightedCode }} />
                 </pre>
               );

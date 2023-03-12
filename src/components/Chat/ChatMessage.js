@@ -35,7 +35,7 @@ const ChatMessage = (props, index) => {
     );
   }
 
-  const regex = /(`{3})([\s\S]*?)(`{3})/g;
+  const regex = /(`)([\s\S]*?)(`)/g;
   const isCode = regex.test(props.message);
 
   if (!isCode) {

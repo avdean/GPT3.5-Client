@@ -82,7 +82,7 @@ const ChatMessage = (props, index) => {
               return (
                 <SyntaxHighlighter
                   language="javascript"
-                  style={vsDark}
+                  style={dracula}
                   key={i}
                 >
                   {part.substring(3, part.length - 3)}

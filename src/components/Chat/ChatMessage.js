@@ -59,35 +59,33 @@ const ChatMessage = (props, index) => {
 
   const parts = props.message.split(regex);
 
-  return (
-    <div className="chat-message-gpt">
-      <AnimatePresence>
-        <motion.div
-          ref={messageRef}
-          key={index}
-          className="messageChatgpt"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 3 }}
-        >
-          {parts.map((part, i) => {
-            if (regex.test(part)) {
-              const code = part.substring(3, part.length - 3);
-              const highlightedCode = hljs.highlightAuto(code).value;
+return (
+  <div className="chat-message-gpt">
+    <AnimatePresence>
+      <motion.div
+        ref={messageRef}
+        key={index}
+        className="messageChatgpt"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 3 }}
+      >
+        {parts.map((part, i) => {
+          if (i % 2 === 1) {
+            const highlightedCode = hljs.highlightAuto(part).value;
 
-              return (
-                <pre key={i} className="hljs">
-                  <code dangerouslySetInnerHTML={{ __html: highlightedCode }} />
-                </pre>
-              );
-            } else {
-              return <span key={i}>{part}</span>;
-            }
-          })}
-        </motion.div>
-      </AnimatePresence>
-    </div>
-  );
-};
+            return (
+              <pre key={i} className="hljs">
+                <code dangerouslySetInnerHTML={{ __html: highlightedCode }} />
+              </pre>
+            );
+          } else {
+            return <span key={i}>{part}</span>;
+          }
+        })}
+      </motion.div>
+    </AnimatePresence>
+  </div>
+);
 
 export default ChatMessage;

@@ -1,8 +1,8 @@
 import { useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import hljs from 'highlight.js/lib/core';
-import 'highlight.js/styles/default.css';
-
+import hljs from "highlight.js";
+import "./dracula.css";
+;
 const ChatMessage = (props, index) => {
   const messageRef = useRef(null);
   useEffect(() => {
@@ -11,6 +11,7 @@ const ChatMessage = (props, index) => {
         behavior: 'smooth',
         block: 'start',
       });
+      hljs.highlightAll();
     }
   }, [messageRef]);
 
@@ -35,10 +36,11 @@ const ChatMessage = (props, index) => {
     );
   }
 
-  const regex = /```/g;
+  const regex = /^(?:`{3}(?=.{0})|(?<=.{0})`{3})/gm;
   const isCode = regex.test(props.message);
 
   if (!isCode) {
+    
     return (
       <div className="chat-message-gpt">
         <AnimatePresence>

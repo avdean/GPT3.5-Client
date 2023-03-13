@@ -3,7 +3,8 @@ import loading from "react-useanimations/lib/loading";
 import { FaRegPaperPlane } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-const ChatInput = (props, theme) => {
+const ChatInput = (props) => {
+  
   return (
     <motion.div className="chat-input-holder">
       <form className="inputForm" onSubmit={props.handleSend}>
@@ -12,6 +13,7 @@ const ChatInput = (props, theme) => {
           rows="1"
           value={props.input}
           onChange={(e) => props.setInput(e.target.value)}
+          disabled={props.isLoading}
         />
         {!props.isLoading ? (
           <FaRegPaperPlane
@@ -19,11 +21,9 @@ const ChatInput = (props, theme) => {
             style={{ cursor: "pointer" }}
             onClick={props.handleSend}
           />
-        ) : !theme === "light" ? (
-          <UseAnimations animation={loading} size={24} strokeColor={"white"} />
-        ) : (
-          <UseAnimations animation={loading} size={24} strokeColor={"black"} />
-        )}
+        ) :
+          <UseAnimations animation={loading} size={24} strokeColor={props.theme === "light" ? "white" : "black"} />
+        }
       </form>
     </motion.div>
   );

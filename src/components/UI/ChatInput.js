@@ -5,22 +5,13 @@ import { FaRegPaperPlane } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const ChatInput = (props) => {
-   const myFormRef = useRef();
-  const onEnterPress = (e) => {
-      if(e.keyCode === 13 && e.shiftKey === false) {
-        e.preventDefault();
-        myFormRef.requestSubmit();
-      }
-    }
-  
-  
+
   return (
     <motion.div className="chat-input-holder">
-      <form className="inputForm" onSubmit={props.handleSend} ref={myFormRef}>
+      <form className="inputForm" onSubmit={props.handleSend}>
         <textarea
           className="chat-input-textarea"
-          onKeyDown={onEnterPress}
-          rows="4"
+          rows="1"
           value={props.input}
           onChange={(e) => props.setInput(e.target.value)}
           disabled={props.isLoading}

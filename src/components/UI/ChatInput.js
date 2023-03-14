@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const ChatInput = (props) => {
    const myFormRef = useRef();
   const onEnterPress = (e) => {
-      if(e.keyCode === 13 && e.shiftKey == false) {
+      if(e.keyCode === 13 && e.shiftKey === false) {
         e.preventDefault();
         myFormRef.requestSubmit();
       }

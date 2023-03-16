@@ -64,9 +64,8 @@ function App() {
     setShowSidemenu(!showSidemenu);
   }
 
-  const handleSend = async (e) => {
+  const handleSend = async () => {
     console.log(currentSystemMessage);
-    e.preventDefault();
     setInput("");
     if (input.trim() === "") {
       return;

@@ -1,16 +1,24 @@
 import UseAnimations from "react-useanimations";
+import TextareaAutosize from "react-textarea-autosize";
 import loading from "react-useanimations/lib/loading";
 import { FaRegPaperPlane } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const ChatInput = (props) => {
 
+  function EnterPress(e) {
+    if (e.keyCode == 13 && e.shiftKey === false) {
+      e.preventDefault();
+      props.handleSend();
+    }
+  }
+
   return (
     <motion.div className="chat-input-holder">
-      <form className="inputForm" onSubmit={props.handleSend}>
-        <textarea
+      <form className="inputForm" onSubmit={props.handleSend} onKeyDown={EnterPress}>
+        <TextareaAutosize
           className="chat-input-textarea"
-          rows="1"
+          maxRows="6"
           value={props.input}
           onChange={(e) => props.setInput(e.target.value)}
           disabled={props.isLoading}
@@ -21,9 +29,13 @@ const ChatInput = (props) => {
             style={{ cursor: "pointer" }}
             onClick={props.handleSend}
           />
-        ) :
-          <UseAnimations animation={loading} size={24} strokeColor={props.theme === "light" ? "white" : "black"} />
-        }
+        ) : (
+          <UseAnimations
+            animation={loading}
+            size={24}
+            strokeColor={props.theme === "light" ? "white" : "black"}
+          />
+        )}
       </form>
     </motion.div>
   );

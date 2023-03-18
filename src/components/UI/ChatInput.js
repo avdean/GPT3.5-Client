@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import UseAnimations from "react-useanimations";
 import TextareaAutosize from "react-textarea-autosize";
 import loading from "react-useanimations/lib/loading";
@@ -5,6 +6,7 @@ import { FaRegPaperPlane } from "react-icons/fa";
 import { motion } from "framer-motion";
  
 const ChatInput = (props) => {
+const timeoutRef = useRef(null);
  
   function EnterPress(e) {
     if (e.keyCode === 13 && e.shiftKey === false) {
@@ -12,7 +14,12 @@ const ChatInput = (props) => {
       props.handleSend();
     }
   }
-## 
+
+function handleInputChange(e) { 
+const val = e.target.value; 
+clearTimeout(timeoutRef.current); 
+timeoutRef.current = setTimeout(() => { props.setInput(val); }, 500); }
+
  
   return (
     <motion.div className="chat-input-holder">
@@ -21,7 +28,7 @@ const ChatInput = (props) => {
           className="chat-input-textarea noScroll"
           maxRows="6"
           value={props.input}
-          onChange={(e) => props.setInput(e.target.value)}
+          onChange={handleInputChange}
           disabled={props.isLoading}
         />
         {!props.isLoading ? (

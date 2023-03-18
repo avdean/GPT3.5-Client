@@ -6,15 +6,17 @@ import { motion } from "framer-motion";
  
 const ChatInput = (props) => {
  
-  function enterPress(e) {
+  function EnterPress(e) {
     if (e.keyCode === 13 && e.shiftKey === false) {
       e.preventDefault();
       props.handleSend();
     }
+  }
+## 
  
   return (
     <motion.div className="chat-input-holder">
-      <form className="inputForm" onSubmit={props.handleSend} onKeyDown={enterPress}>
+      <form className="inputForm" onSubmit={props.handleSend} onKeyDown={EnterPress}>
         <TextareaAutosize
           className="chat-input-textarea noScroll"
           maxRows="6"

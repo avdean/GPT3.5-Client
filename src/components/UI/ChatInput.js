@@ -19,7 +19,7 @@ function handleEnterPress(e) { if (e.keyCode === 13 && !e.shiftKey) { e.preventD
 
   return (
     <motion.div className="chat-input-holder">
-      <form className="inputForm" onSubmit={props.handleSend} onKeyDown={EnterPress}>
+      <form className="inputForm" onSubmit={props.handleSend} onKeyDown={handleEnterPress}>
         <TextareaAutosize
           className="chat-input-textarea noScroll"
           maxRows="6"

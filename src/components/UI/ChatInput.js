@@ -16,8 +16,7 @@ const ChatInput = (props) => {
     <motion.div className="chat-input-holder">
       <form className="inputForm" onSubmit={props.handleSend} onKeyDown={enterPress}>
         <TextareaAutosize
-          class
-# Name="chat-input-textarea noScroll"
+          className="chat-input-textarea noScroll"
           maxRows="6"
           value={props.input}
           onChange={(e) => props.setInput(e.target.value)}

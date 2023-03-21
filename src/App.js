@@ -13,7 +13,6 @@ import ChatInput from "./components/UI/ChatInput";
 import TopMenu from "./components/UI/TopMenu";
 
 function App() {
-  const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isInitial, setIsInitial] = useState(true);
   const [error, setError] = useState(false);
@@ -64,14 +63,15 @@ function App() {
     setShowSidemenu(!showSidemenu);
   }
 
-  const handleSend = async () => {
-    console.log(currentSystemMessage);
-    setInput("");
-    if (input.trim() === "") {
+  const handleSend = async (currentValue) => {
+    
+    console.log("handleSend is being called by ChatInput");
+    if (currentValue.trim() === "") {
+      console.log("input is empty");
       return;
     }
     const newMessage = {
-      message: input,
+      message: currentValue,
       sender: "user"
     };
 
@@ -186,9 +186,8 @@ function App() {
         {currentAPI !== "" && !error && (
           <ChatInput
             handleSend={handleSend}
-            input={input}
-            setInput={setInput}
             isLoading={isLoading}
+            setIsLoading={setIsLoading}
           />
         )}
       </motion.section>

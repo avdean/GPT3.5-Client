@@ -12,7 +12,7 @@ const ChatInput = (props) => {
     setCurrentValue(e.target.value);
   };
 
-  const preSendFunction = async (currentValue, e) => {
+  const preSendFunction = async (e) => {
     e.preventDefault();
     props.setIsLoading(true);
     setCurrentValue("");

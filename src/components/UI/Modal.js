@@ -17,7 +17,7 @@ const Modal = (props) => {
     props.onClose();
   }
   return (
-    <div className="modal">
+    <div className="modal" onClick={props.onClose}>
       <motion.div
         className="modalContent"
         initial={{ opacity: 0, scale: 0.5 }}

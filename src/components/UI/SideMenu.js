@@ -15,35 +15,35 @@ const SideMenu = (props) => {
       >
         <div className="sidemenuInner">
           {props.showSidemenu && (
-            <div className="sidemenu-button" onClick={props.toggleSideMenu}>
+            <button className="sidemenu-button" onClick={props.toggleSideMenu}>
               <HiX />
               Close Menu
-            </div>
+            </button>
           )}
-          <div className="sidemenu-button" onClick={props.clearChat}>
+          <button className="sidemenu-button" onClick={props.clearChat}>
             <HiPlus />
             New chat
-          </div>
-          <div className="sidemenu-button" onClick={props.saveChat}>
+          </button>
+          <button className="sidemenu-button" onClick={props.saveChat}>
             <HiSave />
             Save current chat
-          </div>
+          </button>
         </div>
         <div className="sidemenuInner">
-          <div className="sidemenu-button" onClick={() => setShow(true)}>
+          <button className="sidemenu-button" onClick={() => setShow(true)}>
             <HiBeaker />
             System Message
-          </div>
+          </button>
           {props.theme === "light" ? (
-            <div className="sidemenu-button" onClick={props.switchTheme}>
+            <button className="sidemenu-button" onClick={props.switchTheme}>
               <HiSun />
               Light Mode
-            </div>
+            </button>
           ) : (
-            <div className="sidemenu-button" onClick={props.switchTheme}>
+            <button className="sidemenu-button" onClick={props.switchTheme}>
               <HiMoon />
               Dark Mode
-            </div>
+            </button>
           )}
         </div>
       </aside>

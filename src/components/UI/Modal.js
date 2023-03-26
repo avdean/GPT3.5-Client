@@ -28,7 +28,7 @@ const Modal = (props) => {
           <HiX onClick={props.onClose} />
         </div>
         <p>This is your current System Message:</p>
-        <h3>{props.currentSystemMessage}</h3>
+        <div className="SystemMessageDisplay"><p>{props.currentSystemMessage}</p></div>
 
         <p>You can also add how you would like GPT 3.5 to respond?</p>
         <form className="sytemMessageForm" onSubmit={handleSystemMessageSubmit}>

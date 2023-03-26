@@ -322,6 +322,28 @@ transform: scale(10px);
   align-items: center;
 }
 
+.SystemMessageDisplay{
+  max-height:15vh;
+  background-color: var(--secondary);
+  box-shadow:inset 4px 4px 8px var(--shadow);
+  border-radius: 8px;
+  overflow-y:scroll;
+}
+
+.SystemMessageDisplay::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+.SystemMessageDisplay::-webkit-scrollbar-track {
+  background: transparent;        /* color of the tracking area */
+}
+
+.SystemMessageDisplay::-webkit-scrollbar-thumb {
+  background-color:var(--primary);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid var(--accent);  /* creates padding around scroll thumb */
+}
+
 .systemMessageAddModal {
   padding:10px;
   width:90%;

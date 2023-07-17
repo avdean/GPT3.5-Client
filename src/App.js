@@ -105,8 +105,8 @@ function App() {
     // and the messages which we formatted above. We add a system message in the front to'
     // determine how we want chatGPT to act. 
     const apiRequestBody = {
-      // "model": "gpt-3.5-turbo",
-      "model": "gpt-4",
+       "model": "gpt-3.5-turbo",
+      // "model": "gpt-4",
       "messages": [
         systemMessage,  // The system message DEFINES the logic of our chatGPT
         ...apiMessages // The messages from our chat with ChatGPT

@@ -27,10 +27,11 @@ const Modal = (props) => {
         <div className="closeCorner">
           <HiX onClick={props.onClose} />
         </div>
+        <p>Current Model: {props.currentModel}</p>
         <p>This is your current System Message:</p>
         <div className="SystemMessageDisplay"><p>{props.currentSystemMessage}</p></div>
 
-        <p>You can also add how you would like GPT 3.5 to respond?</p>
+        <p>You can also add how you would like ChatGPT to respond?</p>
         <form className="sytemMessageForm" onSubmit={handleSystemMessageSubmit}>
           <textarea
             type="text"

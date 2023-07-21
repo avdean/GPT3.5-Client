@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { HiX, HiPlus, HiSave, HiSun, HiMoon, HiBeaker } from "react-icons/hi";
+import { HiX, HiPlus, HiSave, HiSun, HiMoon, HiBeaker,HiAcademicCap } from "react-icons/hi";
 import Modal from "./Modal";
 
 const SideMenu = (props) => {
@@ -28,6 +28,15 @@ const SideMenu = (props) => {
             <HiSave />
             Save current chat
           </button>
+          {props.currentModel === "gpt-3.5-turbo" ? (
+            <button className="sidemenu-button" onClick={props.switchModel}>
+              <HiAcademicCap /> Switch to GPT 4
+            </button>
+          ) : (
+            <button className="sidemenu-button" onClick={props.switchModel}>
+              <HiBeaker /> Switch to GPT 3.5
+            </button>
+          )}
         </div>
         <div className="sidemenuInner">
           <button className="sidemenu-button" onClick={() => setShow(true)}>
@@ -51,6 +60,7 @@ const SideMenu = (props) => {
         <Modal
           show={show}
           onClose={() => setShow(false)}
+          currentModel={props.currentModel}
           currentSystemMessage={props.currentSystemMessage}
           setCurrentSystemMessage={props.setCurrentSystemMessage}
           clearChat={props.clearChat}

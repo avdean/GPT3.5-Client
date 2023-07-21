@@ -50,6 +50,10 @@ function App() {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
   };
+  const switchModel = () => {
+    const newModel = currentModel === "gpt-3.5-turbo" ? "gpt-4" : "gpt-3.5-turbo";
+    setCurrentModel(newModel);
+  };
 
   function clearChat() {
     setMessages([]);
@@ -105,7 +109,8 @@ function App() {
     // and the messages which we formatted above. We add a system message in the front to'
     // determine how we want chatGPT to act. 
     const apiRequestBody = {
-       "model": "gpt-3.5-turbo",
+       "model": currentModel,
+      // "model": "gpt-3.5-turbo",
       // "model": "gpt-4",
       "messages": [
         systemMessage,  // The system message DEFINES the logic of our chatGPT
@@ -146,6 +151,7 @@ function App() {
           currentModel={currentModel}
           theme={theme}
           switchTheme={switchTheme}
+          switchModel={switchModel}
           showSidemenu={showSidemenu}
           toggleSideMenu={toggleSideMenu}
           currentSystemMessage={currentSystemMessage}

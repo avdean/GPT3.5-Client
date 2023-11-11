@@ -51,7 +51,7 @@ function App() {
     setTheme(newTheme);
   };
   const switchModel = () => {
-    const newModel = currentModel === "gpt-3.5-turbo" ? "gpt-4" : "gpt-3.5-turbo";
+    const newModel = currentModel === "gpt-3.5-turbo" ? "gpt-4-vision-preview" : "gpt-3.5-turbo";
     setCurrentModel(newModel);
   };
 

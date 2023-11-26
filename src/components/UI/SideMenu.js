@@ -28,16 +28,9 @@ const SideMenu = (props) => {
             <HiSave />
             Save current chat
           </button>
-// Simple Switch button
-         {props.currentModel === "gpt-3.5-turbo" ? (
-          <button className="sidemenu-button" onClick={props.switchModel}>
-              <HiAcademicCap /> Switch to GPT 4
-            </button>
-          ) : (
            <button className="sidemenu-button" onClick={props.switchModel}>
               <HiBeaker /> Switch Model
            </button>
-          )}
 
         </div>
         <div className="sidemenuInner">

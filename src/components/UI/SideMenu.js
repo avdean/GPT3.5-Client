@@ -28,15 +28,34 @@ const SideMenu = (props) => {
             <HiSave />
             Save current chat
           </button>
-          {props.currentModel === "gpt-3.5-turbo" ? (
-            <button className="sidemenu-button" onClick={props.switchModel}>
-              <HiAcademicCap /> Switch to GPT 4
-            </button>
-          ) : (
-            <button className="sidemenu-button" onClick={props.switchModel}>
-              <HiBeaker /> Switch to GPT 3.5
-            </button>
-          )}
+// Simple Switch button
+        // {props.currentModel === "gpt-3.5-turbo" ? (
+         //   <button className="sidemenu-button" onClick={props.switchModel}>
+          //    <HiAcademicCap /> Switch to GPT 4
+        //    </button>
+     //     ) : (
+      //      <button className="sidemenu-button" onClick={props.switchModel}>
+       //       <HiBeaker /> Switch to GPT 3.5
+       //     </button>
+        //  )}
+
+         {props.currentModel === "gpt-3.5-turbo" ? (
+    <button className="sidemenu-button" onClick={props.switchModel}>
+      <HiAcademicCap /> GPT 4
+    </button>
+  ) : props.currentModel === "gpt-4" ? (
+    <button className="sidemenu-button" onClick={props.switchModel}>
+      <HiAcademicCap /> GPT 4.5 vision
+    </button>
+  ) : props.currentModel === "gpt-4-vision-preview" ? (
+    <button className="sidemenu-button" onClick={props.switchModel}>
+      <HiAcademicCap /> GPT 4.5 turbo
+    </button>
+  ) : (
+    <button className="sidemenu-button" onClick={props.switchModel}>
+      <HiAcademicCap /> GPT 3.5
+    </button>
+  )}   
         </div>
         <div className="sidemenuInner">
           <button className="sidemenu-button" onClick={() => setShow(true)}>

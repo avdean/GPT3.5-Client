@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { HiX, HiPlus, HiSave, HiSun, HiMoon, HiBeaker,HiAcademicCap } from "react-icons/hi";
+import { HiX, HiPlus, HiSave, HiSun, HiMoon, HiBeaker } from "react-icons/hi";
 import Modal from "./Modal";
 
 const SideMenu = (props) => {

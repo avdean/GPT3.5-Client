@@ -63,8 +63,6 @@ function App() {
    if (currentModel === "gpt-3.5-turbo") {
      newModel = "gpt-4";
    } else if (currentModel === "gpt-4") {
-     newModel = "gpt-4-vision-preview";
-  } else if (currentModel === "gpt-4-vision-preview") {
      newModel = "gpt-4-1106-preview";
    } else {
      newModel = "gpt-3.5-turbo";

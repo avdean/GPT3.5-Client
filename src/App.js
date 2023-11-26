@@ -50,10 +50,27 @@ function App() {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
   };
+  
+ // Boolean Switch
+ // const switchModel = () => {
+ //   const newModel = currentModel === "gpt-3.5-turbo" ? "gpt-4" : "gpt-3.5-turbo";
+ //   setCurrentModel(newModel);
+ // };
+
+  // 3 option Switch
   const switchModel = () => {
-    const newModel = currentModel === "gpt-3.5-turbo" ? "gpt-4" : "gpt-3.5-turbo";
-    setCurrentModel(newModel);
-  };
+   let newModel;
+   if (currentModel === "gpt-3.5-turbo") {
+     newModel = "gpt-4";
+   } else if (currentModel === "gpt-4") {
+     newModel = "gpt-4-vision-preview";
+  } else if (currentModel === "gpt-4-vision-preview") {
+     newModel = "gpt-4-1106-preview";
+   } else {
+     newModel = "gpt-3.5-turbo";
+   }
+   setCurrentModel(newModel);
+ };
 
   function clearChat() {
     setMessages([]);

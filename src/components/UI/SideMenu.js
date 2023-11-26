@@ -39,23 +39,9 @@ const SideMenu = (props) => {
        //     </button>
         //  )}
 
-         {props.currentModel === "gpt-3.5-turbo" ? (
-    <button className="sidemenu-button" onClick={props.switchModel}>
-      <HiAcademicCap /> GPT 4
-    </button>
-  ) : props.currentModel === "gpt-4" ? (
-    <button className="sidemenu-button" onClick={props.switchModel}>
-      <HiAcademicCap /> GPT 4.5 vision
-    </button>
-  ) : props.currentModel === "gpt-4-vision-preview" ? (
-    <button className="sidemenu-button" onClick={props.switchModel}>
-      <HiAcademicCap /> GPT 4.5 turbo
-    </button>
-  ) : (
-    <button className="sidemenu-button" onClick={props.switchModel}>
-      <HiAcademicCap /> GPT 3.5
-    </button>
-  )}   
+   <button className="sidemenu-button" onClick={props.switchModel}>
+      <HiAcademicCap /> Switch Model
+    </button> 
         </div>
         <div className="sidemenuInner">
           <button className="sidemenu-button" onClick={() => setShow(true)}>

@@ -307,8 +307,18 @@ transform: scale(10px);
   align-items: center;
 }
 
-option {
+.dropDownContent {
+  display: none;
+  position: absolute;
+  color: var(--primary);
+  background: var(--accent);
+  border: 1px solid var(--primary);
   padding: 12px;
+  border-radius: 8px;
+  z-index: 1;
+}
+.dropDown:hover .dropDownContent {
+  display: block;
 }
 
 .sidemenu-button:hover {

@@ -297,6 +297,16 @@ transform: scale(10px);
   transition: all 0.3s;
 }
 
+.dropDown {
+  color: var(--accent);
+  background: var(--primary);
+  border: 1px solid var(--accent);
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+
 .sidemenu-button:hover {
   background-color: var(--background);
   transition: all 0.3s;

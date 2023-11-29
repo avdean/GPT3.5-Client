@@ -307,6 +307,10 @@ transform: scale(10px);
   align-items: center;
 }
 
+option {
+  padding: 12px;
+}
+
 .sidemenu-button:hover {
   background-color: var(--background);
   transition: all 0.3s;

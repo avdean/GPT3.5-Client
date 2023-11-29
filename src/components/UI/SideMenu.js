@@ -4,6 +4,9 @@ import Modal from "./Modal";
 
 const SideMenu = (props) => {
   const [show, setShow] = useState(false);
+    const handleModelChange = (event) => {
+    props.setCurrentModel(event.target.value);
+  };
 
   return (
     <>
@@ -31,8 +34,13 @@ const SideMenu = (props) => {
            <button className="sidemenu-button" onClick={props.switchModel}>
               <HiBeaker /> Switch Model
            </button>
-
+           <select className="model-dropdown" onChange={handleModelChange} value={props.currentModel}>
+              <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+              <option value="gpt-4">GPT-4</option>
+              <option value="gpt-4-1106-preview">GPT-4 1106 Preview</option>
+            </select>
         </div>
+            
         <div className="sidemenuInner">
           <button className="sidemenu-button" onClick={() => setShow(true)}>
             <HiBeaker />

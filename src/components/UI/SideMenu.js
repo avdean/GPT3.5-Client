@@ -31,10 +31,7 @@ const SideMenu = (props) => {
             <HiSave />
             Save current chat
           </button>
-           <button className="sidemenu-button" onClick={props.switchModel}>
-              <HiBeaker /> Switch Model
-           </button>
-           <select className="model-dropdown" onChange={handleModelChange} value={props.currentModel}>
+           <select className="dropDown" onChange={handleModelChange} value={props.currentModel}>
               <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
               <option value="gpt-4">GPT-4</option>
               <option value="gpt-4-1106-preview">GPT-4 1106 Preview</option>

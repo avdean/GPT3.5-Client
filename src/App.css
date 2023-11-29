@@ -306,19 +306,9 @@ transform: scale(10px);
   display: flex;
   align-items: center;
 }
-
-.dropDownContent {
-  display: none;
-  position: absolute;
-  color: var(--primary);
-  background: var(--accent);
-  border: 1px solid var(--primary);
-  padding: 12px;
-  border-radius: 8px;
-  z-index: 1;
-}
-.dropDown:hover .dropDownContent {
-  display: block;
+.dropDown:hover {
+  background-color: var(--background);
+  transition: all 0.3s;
 }
 
 .sidemenu-button:hover {
@@ -333,6 +323,9 @@ transform: scale(10px);
 
 @media (max-width:700px) {
   .sidemenu-button {
+    border: 1px solid transparent;
+  }
+  .dropDown {
     border: 1px solid transparent;
   }
 }

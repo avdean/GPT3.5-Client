@@ -127,6 +127,7 @@ function App() {
        "model": currentModel,
       // "model": "gpt-3.5-turbo",
       // "model": "gpt-4",
+      response_format: { type: "json_object" },
       "messages": [
         systemMessage,  // The system message DEFINES the logic of our chatGPT
         ...apiMessages // The messages from our chat with ChatGPT

@@ -34,7 +34,8 @@ const SideMenu = (props) => {
            <select className="dropDown" onChange={handleModelChange} value={props.currentModel}>
               <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
               <option value="gpt-4">GPT-4</option>
-              <option value="gpt-4-turbo-preview">GPT-4.5 Turbo</option>
+              <option value="gpt-4-turbo">GPT-4.5 Turbo</option>
+              <option value="gpt-4o">GPT 4o</option>
             </select>
         </div>
             

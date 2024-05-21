@@ -2,9 +2,12 @@ import { useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import hljs from "highlight.js";
 import "./dracula.css";
-;
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+
 const ChatMessage = (props, index) => {
   const messageRef = useRef(null);
+
   useEffect(() => {
     if (messageRef.current) {
       messageRef.current.scrollIntoView({
@@ -15,79 +18,39 @@ const ChatMessage = (props, index) => {
     }
   }, [messageRef]);
 
-  const isFromChatGPT = props.sender === 'ChatGPT';
+  // Regular expression to split content by code blocks
+  const parts = props.message.split(/(```[\s\S]*?```)/);
 
-  if (!isFromChatGPT) {
-    return (
-      <div className="chat-message">
-        <AnimatePresence>
-          <motion.div
-            ref={messageRef}
-            key={index}
-            className="message"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 2 }}
-          >
-            {props.message}
-          </motion.div>
-        </AnimatePresence>
-      </div>
-    );
-  }
-
-  const regex = /^(?:`{3}(?=.{0})|(?<=.{0})`{3})/gm;
-  const isCode = regex.test(props.message);
-
-  if (!isCode) {
-    
-    return (
-      <div className="chat-message-gpt">
-        <AnimatePresence>
-          <motion.div
-            ref={messageRef}
-            key={index}
-            className="messageChatgpt"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 3 }}
-          >
-            {props.message}
-          </motion.div>
-        </AnimatePresence>
-      </div>
-    );
-  }
-
-  const parts = props.message.split(regex);
-
-return (
-  <div className="chat-message-gpt">
-    <AnimatePresence>
-      <motion.div
-        ref={messageRef}
-        key={index}
-        className="messageChatgpt"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 3 }}
-      >
-        {parts.map((part, i) => {
-          if (i % 2 === 1) {
-            const highlightedCode = hljs.highlightAuto(part).value;
-
+  return (
+    <div className={`chat-message${props.sender === 'ChatGPT' ? '-gpt' : ''}`}>
+      <AnimatePresence>
+        <motion.div
+          ref={messageRef}
+          key={index}
+          className={`message${props.sender === 'ChatGPT' ? 'Chatgpt' : ''}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: props.sender === 'ChatGPT' ? 3 : 2 }}
+        >
+          {parts.map((part, i) => {
+            // Check if the part is a code block
+            if (/^```/.test(part)) {
+              const codeContent = part.replace(/^```|```$/g, '');
+              return (
+                <pre key={i}>
+                  <code>{codeContent}</code>
+                </pre>
+              );
+            }
+            // Render as Markdown if not code block with added Markdown functionality
             return (
-              <pre key={i} className="hljs">
-                <code dangerouslySetInnerHTML={{ __html: highlightedCode }} />
-              </pre>
+              <ReactMarkdown key={i} remarkPlugins={[remarkGfm]}>{part}</ReactMarkdown>
             );
-          } else {
-            return <span key={i}>{part}</span>;
-          }
-        })}
-      </motion.div>
-    </AnimatePresence>
-  </div>
-);
+          })}
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
 };
+
 export default ChatMessage;

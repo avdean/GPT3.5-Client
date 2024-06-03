@@ -5,6 +5,12 @@ import "./dracula.css";
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
+// Utility function to clean up the content
+const cleanContent = (content) => {
+  // Replace multiple newlines with a single newline
+  return content.replace(/\n{2,}/g, '\n');
+};
+
 const ChatMessage = (props, index) => {
   const messageRef = useRef(null);
 
@@ -42,9 +48,11 @@ const ChatMessage = (props, index) => {
                 </pre>
               );
             }
-            // Render as Markdown if not code block with added Markdown functionality
+            // Clean and render as Markdown if not code block
             return (
-              <ReactMarkdown key={i} remarkPlugins={[remarkGfm]}>{part}</ReactMarkdown>
+              <ReactMarkdown key={i} remarkPlugins={[remarkGfm]}>
+                {cleanContent(part)}
+              </ReactMarkdown>
             );
           })}
         </motion.div>

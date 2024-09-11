@@ -24,7 +24,7 @@ function App() {
 
   const [currentModel, setCurrentModel] = useState(() => {
     const savedModel = localStorage.getItem("currentModel");
-    return savedModel !== null ? savedModel : "gpt-3.5-turbo";
+    return savedModel !== null ? savedModel : "gpt-4o-mini";
   });
 
   const [currentAPI, setCurrentAPI] = useState(() => {
@@ -60,14 +60,14 @@ function App() {
   // 3 option Switch
   const switchModel = () => {
    let newModel;
-   if (currentModel === "gpt-3.5-turbo") {
+   if (currentModel === "gpt-4o-mini") {
      newModel = "gpt-4";
    } else if (currentModel === "gpt-4") {
      newModel = "gpt-4-turbo";
    } else if (currentModel === "gpt-4o") {
      newModel = "gpt-4o";
    } else {
-     newModel = "gpt-3.5-turbo";
+     newModel = "gpt-4o-mini";
    }
    setCurrentModel(newModel);
  };

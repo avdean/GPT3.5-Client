@@ -68,10 +68,10 @@ function App() {
      newModel = "gpt-4o";
    } else if (currentModel === "gpt-3.5-turbo") {
      newModel = "gpt-3.5-turbo";
-   } else if (currentModel === "gpt-o3") {
-     newModel = "gpt-o3";
-   } else if (currentModel === "gpt-o3-mini") {
-     newModel = "gpt-o3-mini";
+   } else if (currentModel === "o1") {
+     newModel = "gpt-o1";
+   } else if (currentModel === "o3-mini") {
+     newModel = "o3-mini";
    } else {
      newModel = "gpt-4o-mini";
    }

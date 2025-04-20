@@ -64,9 +64,15 @@ function App() {
      newModel = "gpt-4";
    } else if (currentModel === "gpt-4") {
      newModel = "gpt-4-turbo";
-   } else if (currentModel === "gpt-4o") {
-     newModel = "gpt-4o";
-   } else if (currentModel === "gpt-3.5-turbo") {
+   } else if (currentModel === "gpt-4.1") {
+     newModel = "gpt-4.1";
+   } else if (currentModel === "gpt-4.1-nano") {
+     newModel = "gpt-4.1-nano";
+    } else if (currentModel === "gpt-4.1-mini") {
+      newModel = "gpt-4.1-mini";
+     } else if (currentModel === "gpt-o4-mini") {
+      newModel = "gpt-o4-mini";
+    } else if (currentModel === "gpt-3.5-turbo") {
      newModel = "gpt-3.5-turbo";
    } else if (currentModel === "o1") {
      newModel = "gpt-o1";

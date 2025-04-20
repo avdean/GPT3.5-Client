@@ -32,12 +32,14 @@ const SideMenu = (props) => {
             Save current chat
           </button>
            <select className="dropDown" onChange={handleModelChange} value={props.currentModel}>
-              <option value="gpt-4o-mini">GPT-4o Mini</option>
+              <option value="gpt-4.1-nano">GPT-4.1 Nano</option>
+              <option value="gpt-4.1-mini">GPT-4.1 Mini</option>
+              <option value="gpt-4.1">GPT-4.1</option>
+              <option value="o4-mini">o4 Mini</option>
+              <option value="o4">o4</option>
               <option value="o3-mini">o3-Mini</option>
-              <option value="gpt-4">GPT-4</option>
+              <option value="o3">o3</option>
               <option value="gpt-4-turbo">GPT-4 Turbo</option>
-              <option value="gpt-4o">GPT 4o</option>
-              <option value="o1">o1</option>
               <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
             </select>
         </div>

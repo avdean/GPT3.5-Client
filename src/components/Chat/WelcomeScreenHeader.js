@@ -52,16 +52,16 @@ const WelcomeScreen = (props) => {
         animate="visible"
         variants={container}
       >
-        <h1>GPT 3.5 Client</h1>
+        <h1>Welcome to my ChatGPT Frontend Client</h1>
         <p>
-          This is a client that lets you speak to OpenAI's chatGPT chatbot direct via API, with a slightly smoother UI!
+          This is a client that lets you speak to OpenAI's chatGPT chatbot directly via API!
         </p>
         <form className="WelcomeInputForm" onSubmit={handleApiSubmit}>
         <p>Before you start, please enter your OpenAI API key:</p>
             <input className="ApiInput" type="text" name="api" ref={apiInputRef} />
             {props.error && <p>Please enter a valid API-Key</p>}
  
-          <p>You can also add how you would like GPT 3.5 to respond?</p>
+          <p>You can also add how you would like chatGPT to respond?</p>
             <textarea
               type="text"
               className="systemMessageAdd"

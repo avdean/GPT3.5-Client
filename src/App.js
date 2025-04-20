@@ -24,7 +24,7 @@ function App() {
 
   const [currentModel, setCurrentModel] = useState(() => {
     const savedModel = localStorage.getItem("currentModel");
-    return savedModel !== null ? savedModel : "gpt-4o-mini";
+    return savedModel !== null ? savedModel : "gpt-4.1-nano";
   });
 
   const [currentAPI, setCurrentAPI] = useState(() => {

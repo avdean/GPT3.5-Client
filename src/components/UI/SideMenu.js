@@ -35,7 +35,8 @@ const SideMenu = (props) => {
               <option value="gpt-4.1-nano">GPT-4.1 Nano</option>
               <option value="gpt-4.1-mini">GPT-4.1 Mini</option>
               <option value="gpt-5">GPT-5</option>
-              <option value="gpt-4.1">GPT-4.1</option>
+              <option value="gpt-5-nano">GPT-5 Nano</option>
+              <option value="gpt-5-mini">GPT-5 Mini</option> 
               <option value="o4-mini">o4 Mini</option>
               <option value="o4">o4</option>
               <option value="o3-mini">o3-Mini</option>
@@ -78,4 +79,5 @@ const SideMenu = (props) => {
 };
 
 export default SideMenu;
+
 

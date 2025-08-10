@@ -60,14 +60,14 @@ function App() {
   // 3 option Switch
   const switchModel = () => {
    let newModel;
-   if (currentModel === "gpt-4") {
-     newModel = "gpt-4";
-   } else if (currentModel === "gpt-5") {
+   if (currentModel === "gpt-5") {
      newModel = "gpt-5";
+     } else if (currentModel === "gpt-5-nano") {
+     newModel = "gpt-5-nano";
+     } else if (currentModel === "gpt-5-mini") {
+     newModel = "gpt-5-mini";
    } else if (currentModel === "gpt-4-turbo") {
      newModel = "gpt-4-turbo";
-   } else if (currentModel === "gpt-4.1") {
-     newModel = "gpt-4.1";
    } else if (currentModel === "gpt-4.1-nano") {
      newModel = "gpt-4.1-nano";
     } else if (currentModel === "gpt-4.1-mini") {
@@ -235,4 +235,5 @@ function App() {
 }
 
 export default App;
+
 
